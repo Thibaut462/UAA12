@@ -18,7 +18,7 @@
     <main>
         <div class="template">
             <?php require_once($template);?>
-            <img src="https://Assets/Images/Friend.JFIF" alt="Chrome">
+            <img src="https://Assets/Image/Century.jpg" alt="Chrome">
         </div>
     </main>
     <footer>
