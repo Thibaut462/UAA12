@@ -53,3 +53,38 @@ function connectUser($pdo)
         die($message);
     }
 }
+function updateUser($pdo)
+{
+    try {
+        //définition de la requête
+        $query ="update utilisateur setn nomUser = : nomUser,prenomUser , passWordUser = :passWordUser,emailUser = emailuser where id = :id";
+        //préparation de la requête 
+        $ajouteUser ->execute([
+            "nomUser" => $_POST["nom"],
+            "prenomUser" => $_POST["mot_de_passe"],
+            "passWordUser"  => $_POST["mot_de_passe"],
+            "emailUser" => $_POST["email"],
+            "id" => $_SESSION["user"] -> id // récupération de l'id de l'utilisateur en sesion actuellement connecté
+        ]);
+    } catch (PDOEXCEPTION $e) {
+        $message = $e->getMessage();
+        die($message);
+    }
+}
+
+function updateSession($pdo)
+{
+    try {
+        
+        $query = "select = from utilisateur where id = :id";
+        $selectUser = $pdo -> prepapre($query);
+        $selectUser ->execute([
+            "id" => $_SESSION ['user']->id//récupération de l'id de l'utilisateur en session actuellement connecté
+        ]);
+        $user = $selectUser -> fetch(); // pas fetchAll car on ne veut qu'une ligne
+        $_SESSION["user"] = $user;
+    } catch (PDOException $e) {
+        $message = $e -> getMessage();
+        die($message);
+    }
+}

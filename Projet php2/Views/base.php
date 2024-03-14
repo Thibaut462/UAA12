@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class ="nav">
-            <?php require_once ("Views/Components/navBar.php");?>
+            <?php require_once ("Components/navbar.php");?>
         </div>
     </header>
     <main>
@@ -23,7 +23,7 @@
     </main>
     <footer>
         <div class ="Components">
-            <?php require_once("Views/Components/footer.php");?>
+            <?php require_once("Components/footer.php");?>
         </div>
     </footer>
 </body>
