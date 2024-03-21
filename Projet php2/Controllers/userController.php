@@ -70,5 +70,9 @@ elseif ($uri === "/updateProfil")
     $template ="Views/Users/inscriptionOrEditProfile.php";      //chemin vers la vue demandée
     require_once("Views/base.php");     //appel de la page de base qui sera remplie avec la vue demandée
 }
-
+elseif ($uri === "/deleteProfil") {
+    deleteAllSchoolsFromUser($pdo); //supprimer toutes les informations de la table école liées à l'utilisateur connecté
+    deleUser($pdo);                     //supprimer l'utilisateur de la table des utilisateurs
+    header("location:/deconnexion");//le déconnecter
+}
    
